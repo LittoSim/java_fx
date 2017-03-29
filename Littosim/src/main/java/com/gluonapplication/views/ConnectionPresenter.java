@@ -71,8 +71,16 @@ public class ConnectionPresenter {
 				Button saveBtn = MaterialDesignIcon.SAVE.button(e -> {
 					{
 						try {
-							GameControlPresenter.setConnection(new MQTTConnector(hote.getText(), port.getText(), user.getText(), password.getText()));
-							GameControlPresenter.initConnection();
+							MQTTConnector con = new MQTTConnector(hote.getText(), port.getText(), user.getText(), password.getText());
+							
+							GameControlPresenter.setConnection(con);
+							if(GameControlPresenter.getScope()!=null)
+								GameControlPresenter.initConnection();
+								
+							FloodOutbreakListPresenter.setConnection(con);
+							if(FloodOutbreakListPresenter.getScope()!=null)
+								FloodOutbreakListPresenter.initConnection();
+							
 							Alert alert = new Alert(AlertType.INFORMATION, "Connection is working");
 						        alert.showAndWait();
 						} catch (MqttException e1) {

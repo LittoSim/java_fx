@@ -5,13 +5,22 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import ummisco.remoteGUI.gui.widgets.ListBox?>
+<?import javafx.scene.control.Button?>
+<?import com.gluonhq.charm.glisten.control.Icon?>
 
 <View fx:id="floodOutbreakList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="350.0" stylesheets="@floodOutbreakList.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gluonapplication.views.FloodOutbreakListPresenter">
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" BorderPane.alignment="CENTER" >
          <children>
+             <Button  fx:id="lancerSimulation" mnemonicParsing="false" onAction="#startVisualisation" text="Visualiser">
+      			   <graphic>
+      			     <Icon  content="PLAY_ARROW" />
+      			   </graphic>
+             </Button>
+         
             <ListBox fx:id="listView" agentName="simu_choisie" follow="listdata" onValueChanged="#valueChanged">
             </ListBox> 
+                 
          </children>
       </VBox>
    </center>

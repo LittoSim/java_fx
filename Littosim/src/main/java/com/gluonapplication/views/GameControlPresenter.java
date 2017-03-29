@@ -36,6 +36,11 @@ public class GameControlPresenter {
 	
 	private static GameControlPresenter scope;
 	
+	public static GameControlPresenter getScope() {
+		return scope;
+	}
+
+	
 	private static MQTTConnector connection = null;
 	@FXML
 	View gamecontrol;
@@ -104,13 +109,13 @@ public class GameControlPresenter {
 	{
 		if(lockedGUI)
 		{
-			sendMessage("UNLOCK_USERS");
+			sendMessage("LOCK_USERS");
 			lockedGUI = false;
 			lockButton.setText("Vérrouiller joueurs");
 		}
 		else
 		{
-			sendMessage("LOCK_USERS");
+			sendMessage("UNLOCK_USERS");
 			lockedGUI = true;
 			lockButton.setText("Dévérrouiller joueurs");			
 		}

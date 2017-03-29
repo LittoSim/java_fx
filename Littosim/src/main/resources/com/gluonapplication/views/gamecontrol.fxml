@@ -20,7 +20,7 @@
                   <VBox alignment="CENTER" prefWidth="100.0">
                      <children>
                         <Label text="Round :" textAlignment="CENTER" />
-                        <LabelBox  fx:id="roundLabel" agentName="current_round" follow="round"  text="0" textAlignment="CENTER" textFill="#5d791d">
+                        <LabelBox  fx:id="roundLabel" agentName="current_round" follow="mround"  text="0" textAlignment="CENTER" textFill="#5d791d">
                            <font>
                               <Font size="34.0" />
                            </font>

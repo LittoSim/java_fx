@@ -46,6 +46,9 @@ public class FloodOutbreakListPresenter {
 	@FXML
 	private ListBox listView;
 	
+	@FXML
+	private Button lancerSimulation;
+
 	
 	
 	@FXML
@@ -64,7 +67,27 @@ public class FloodOutbreakListPresenter {
 		}
 	}
 
+	void sendMessage(String command)
+	{
+		if(this.connection!=null)
+		{
+			 try {
+					this.connection.sendMessage("littosim_command", command);
+				} catch (MqttException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+	}
 	
+	
+	@FXML
+    void startVisualisation(ActionEvent evt)
+	{
+		sendMessage("START_VISUALISATION");
+		
+	}
+
 	public static void initConnection()
 	{
 		scope.initializeConnection();
@@ -75,9 +98,12 @@ public class FloodOutbreakListPresenter {
 		if(connection!=null&&!connection.isConnected()){
     		System.out.println("doing something");
     		this.listView.registerConnection(connection);
-    		
-    		
       	}
+		else
+		{
+			System.out.println("non connecte");
+		}
+		System.out.println("connndsqpfjds qqdsokgj ds^gj ");
 	}
 	
 	@FXML
@@ -91,10 +117,17 @@ public class FloodOutbreakListPresenter {
 	               appBar.setTitleText("Liste des simulations");
 	            }
 		});
+		//initConnection();
     	FloodOutbreakListPresenter.scope = this;
 		initializeConnection();
 
     }
+	
+	public static FloodOutbreakListPresenter getScope() {
+		return scope;
+	}
+
+
 	public static void setConnection(MQTTConnector b)
 	{
 		connection=b;

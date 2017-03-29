@@ -31,7 +31,6 @@ public class FollowedVariable extends Observable {
 	{
 		int tmp = lastIndex;
 		this.lastIndex = data.size();
-		System.out.println("taill "+ tmp+ " "+this.lastIndex);
 		return this.data.subList(tmp, this.lastIndex);
 	}
 
@@ -43,6 +42,7 @@ public class FollowedVariable extends Observable {
 	
 	public synchronized ArrayList<Map<String,Object>> newData(Map<String,Object> nd)
 	{
+		
 		if(nd== null )
 		{
 			ArrayList<Map<String,Object>> tmp = this.data;

@@ -76,16 +76,12 @@ public final class MQTTConnector {
 	
 	private final void storeData(String topic, String message)
 	{
-		//AbstractDriver
-		System.out.println("message received "+ topic);
-		System.out.println("message received "+message);
 		XStream dataStreamer = new XStream(new DomDriver() );// DomDriver());
 		@SuppressWarnings("unchecked")
 		Map<String, Object> data = (Map<String, Object>)dataStreamer.fromXML(message);
-		System.out.println("message received 2  "+data);
 		ArrayList<FollowedVariable> dts=this.receivedData.get(topic);
-		System.out.println("message received "+ topic+" "+data);
 		
+		//System.out.println("réception message" + data);
 		if(dts==null)
 			{
 				//dts = new FollowedVariable(topic);
