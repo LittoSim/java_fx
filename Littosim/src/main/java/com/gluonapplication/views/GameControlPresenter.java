@@ -63,7 +63,8 @@ public class GameControlPresenter {
     
 	private Timeline timeline = null;
 	private Calendar startDate = null;
-	
+	private String oldRound="";
+	private long lastUpdate = 0;;
 	
 	@FXML
 	private void valueChanged(ValueChangedEvent evt)
@@ -99,8 +100,14 @@ public class GameControlPresenter {
 	@FXML
     void newRound(ActionEvent evt)
 	{
-		startTimer();
-		sendMessage("NEW_ROUND");
+		long upd = Calendar.getInstance().getTimeInMillis();
+		if(!this.roundLabel.getText().equals(oldRound) || lastUpdate+10000< upd)
+		{
+			startTimer();
+			oldRound = this.roundLabel.getText();
+			lastUpdate = upd;
+			sendMessage("NEW_ROUND");
+		}
 		
 	}
 
