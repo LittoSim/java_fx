@@ -69,7 +69,6 @@ public class GameControlPresenter {
 	@FXML
 	private void valueChanged(ValueChangedEvent evt)
 	{
-		 System.out.println("Changement de valeur "+ evt.getAgentName()+" attribut:"+evt.getAgentAttributeName()+" valeur:"+evt.getValue());
 		if(this.connection!=null)
 		{
 			 try {
@@ -177,7 +176,6 @@ public class GameControlPresenter {
 	public void initializeConnection()
 	{	
 		if(connection!=null&&!connection.isConnected()){
-			System.out.println("doing something");
 			this.roundLabel.registerConnection(connection);
 		}
 		
@@ -192,7 +190,7 @@ public class GameControlPresenter {
 	                AppBar appBar = MobileApplication.getInstance().getAppBar();
 	                appBar.setNavIcon(MaterialDesignIcon.MENU.button(e -> 
 	                        MobileApplication.getInstance().showLayer(GluonApplication.MENU_LAYER)));
-	               appBar.setTitleText("Control de jeu");
+	               appBar.setTitleText("Contrôle de jeu");
 	            }
 		});
 		EventHandler<SwipeEvent> evt =new EventHandler<SwipeEvent>() {

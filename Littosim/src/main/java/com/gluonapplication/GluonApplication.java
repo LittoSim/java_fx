@@ -60,7 +60,7 @@ public class GluonApplication extends MobileApplication {
 			@Override
 			public View get() {
 				// TODO Auto-generated method stub
-				return (View) new GameControlView("Control de jeux").getView();
+				return (View) new GameControlView("Contrôle de jeux").getView();
 			}
 		};
 		
@@ -98,7 +98,7 @@ public class GluonApplication extends MobileApplication {
 		
 		
 		
-		final Item primaryItem = new Item("Control", MaterialDesignIcon.HOME.graphic());
+		final Item primaryItem = new Item("Contrôle", MaterialDesignIcon.HOME.graphic());
 		final Item secondaryItem = new Item("Configuration", MaterialDesignIcon.DASHBOARD.graphic());
 		final Item thirdItem = new Item("Submersions", MaterialDesignIcon.HISTORY.graphic());
 		drawer.getItems().addAll(primaryItem,thirdItem, secondaryItem);

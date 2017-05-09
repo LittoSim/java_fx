@@ -54,12 +54,10 @@ public class FloodOutbreakListPresenter {
 	@FXML
 	private void valueChanged(ValueChangedEvent evt)
 	{
-		System.out.println("Changement de valeur "+ evt.getAgentName()+" attribut:"+evt.getAgentAttributeName()+" valeur:"+evt.getValue());
 		if(this.connection!=null)
 		{
 			try {
 				this.connection.sendMessage(evt.getAgentName(), evt.getValue());
-				System.out.println("message sended xs");
 			} catch (MqttException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -96,14 +94,12 @@ public class FloodOutbreakListPresenter {
 	public void initializeConnection()
 	{
 		if(connection!=null&&!connection.isConnected()){
-    		System.out.println("doing something");
     		this.listView.registerConnection(connection);
       	}
 		else
 		{
 			System.out.println("non connecte");
 		}
-		System.out.println("connndsqpfjds qqdsokgj ds^gj ");
 	}
 	
 	@FXML
